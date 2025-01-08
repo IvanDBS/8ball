@@ -1,0 +1,1 @@
+worker: ruby 8ball.rb 
