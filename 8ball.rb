@@ -1,20 +1,14 @@
 require 'telegram/bot'
-require 'dotenv'
 
-# Load environment variables from .env file and verify path
-puts "Current directory: #{Dir.pwd}"
-puts "Loading .env file..."
-Dotenv.load(File.join(__dir__, '.env'))
-
-# Add debug output to verify token
+# Получаем токен напрямую из переменных окружения
 token = ENV['TELEGRAM_BOT_TOKEN']
 if token.nil? || token.empty?
-  puts "ERROR: Token not found in .env file!"
-  puts "Please make sure .env file exists and contains TELEGRAM_BOT_TOKEN"
+  puts "ERROR: Token not found in environment variables!"
+  puts "Please set TELEGRAM_BOT_TOKEN in Railway Variables"
   exit 1
 end
 
-puts "Starting bot with token: #{token}"
+puts "Starting bot..."
 
 # В начале файла добавим константу для клавиатуры выбора языка
 LANGUAGE_KEYBOARD = [
